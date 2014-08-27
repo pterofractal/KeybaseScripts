@@ -5,6 +5,7 @@ import datetime
 import os
 import subprocess
 import sys
+from sys import stdin
 
 user = os.environ['USER']
 dbroot = os.path.join(os.path.abspath(os.sep), 'Users', user, 'Dropbox') 
@@ -14,10 +15,13 @@ messages_root = os.path.join(dbroot, 'Keybase')
 
 parser = argparse.ArgumentParser(description='Send secret messages to fellow spies. Will create a small text file in a dropbox folder for your friends to consume.')
 parser.add_argument('target', help='the keybase user to send to')
-parser.add_argument('msg', nargs='+', help='the message to send')
 args = parser.parse_args()
 
-message = ' '.join(args.msg)
+print 'Enter your secret message:'
+msg = stdin.readline()
+msg = "'" + msg.replace("'", "'\\''") + "'"
+message = ''.join(msg)
+print message
 
 msg_components = [args.target, datetime.datetime.now().strftime(user + '_%Y-%m-%d_%H%M%S.%f.txt')]
 
