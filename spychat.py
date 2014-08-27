@@ -6,10 +6,8 @@ import os
 import subprocess
 import sys
 
-# Change this stuff
-dbid = 00000     # Dropbox user ID (in the link to your Public folder)
-dbroot = os.path.join(os.path.abspath(os.sep), 'Users', 'your_user_name', 'Dropbox')  # Path to your local Dropbox folder
-
+user = os.environ['USER']
+dbroot = os.path.join(os.path.abspath(os.sep), 'Users', user, 'Dropbox') 
 
 # Leave this alone
 messages_root = os.path.join(dbroot, 'Keybase')
@@ -21,7 +19,7 @@ args = parser.parse_args()
 
 message = ' '.join(args.msg)
 
-msg_components = [args.target, datetime.datetime.now().strftime('%Y-%m-%d_%H%M%S.%f.txt')]
+msg_components = [args.target, datetime.datetime.now().strftime(user + '_%Y-%m-%d_%H%M%S.%f.txt')]
 
 message_path = os.path.join(messages_root, *msg_components)
 
