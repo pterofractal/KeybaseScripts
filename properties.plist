@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>dropboxId</key>
+	<integer>FILL ME IN WITH A NUMBER</integer>
 	<key>passphrase</key>
 	<string>FILL ME IN</string>
 	<key>pathToDecryptedMessages</key>
