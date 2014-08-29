@@ -10,7 +10,9 @@ from sys import stdin
 from os import listdir
 from os.path import isfile, join
 
+# Set this to your homedir. For some reason os.environ['USER'] didn't seem to work. Not sure why yet.
 homedir='/Users/ksivaran/'
+
 syslog.openlog("DecryptMessagesLog")
 syslog.syslog(syslog.LOG_ALERT, "Started Script")
 
